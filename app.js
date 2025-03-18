@@ -10,8 +10,8 @@ Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del 
 Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página. */
 
 function agregarAmigo() {
-    const input = document.getElementById('amigo');
-    const nombre = input.value.trim();
+    let input = document.getElementById('amigo');
+    let nombre = input.value.trim();
 
     // Verificamos que la entrada (lo que ingresa el usuario no esté vacío)
     if (!nombre) {
@@ -20,8 +20,8 @@ function agregarAmigo() {
     }
 
     // Creo el elemento de lista y agrego al DOM 
-    const listaAmigos = document.getElementById('listaAmigos');
-    const nuevoAmigo = document.createElement('li');
+    let listaAmigos = document.getElementById('listaAmigos');
+    let nuevoAmigo = document.createElement('li');
     nuevoAmigo.textContent = nombre;
     listaAmigos.appendChild(nuevoAmigo);
 
@@ -29,8 +29,8 @@ function agregarAmigo() {
 }
 
 function sortearAmigo() {
-    const listaAmigos = document.getElementById('listaAmigos');
-    const amigos = listaAmigos.getElementsByTagName('li');
+    let listaAmigos = document.getElementById('listaAmigos');
+    let amigos = listaAmigos.getElementsByTagName('li');
 
     // Validar que hay amigos agregados
     if (amigos.length === 0) {
@@ -39,13 +39,13 @@ function sortearAmigo() {
     }
 
     // Seleccionar un índice aleatorio (Es decir, se selecciona un amigo secreto aleatorio de la lista ingresada)
-    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
-    const amigoSecreto = amigos[indiceAleatorio].textContent;
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    let amigoSecreto = amigos[indiceAleatorio].textContent;
 
     // Mostrar resultado
-    const resultado = document.getElementById('resultado');
+    let resultado = document.getElementById('resultado');
     resultado.innerHTML = ''; // Limpiar resultados anteriores
-    const elementoResultado = document.createElement('li');
+    let elementoResultado = document.createElement('li');
     elementoResultado.textContent = amigoSecreto;
     resultado.appendChild(elementoResultado);
 }
